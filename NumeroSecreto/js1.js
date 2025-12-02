@@ -96,6 +96,11 @@ function ej5() {
         alert ("Los numeros introducidos no son validos");
     }
 }
+function random() {
+    numerorandom = Math.floor(Math.random() * 100);
+    intentos = 0; 
+    document.getElementById("adivinado").innerHTML = "Dime un numero del 1 al 100";
+}
 function ej6() {
     intentos = intentos + 1;
     let numeroej6 = document.getElementById("numero").value;
@@ -113,18 +118,8 @@ function ej6() {
         else if (isNaN(numeroej6)) {
             document.getElementById("adivinado").innerHTML = "Introduce un numero valido";
         }
-        else if ( numeroej6 <= 0 || numeroej6 > 100) {
-            document.getElementById("adivinado").innerHTML = "del 1 al 100 por favor";
-        }
-        numeroej6 = parseInt(numeroej6);
-
-    }
-    else 
-        {
-        document.getElementById("adivinado").innerHTML = "Has adivinado el numero! pero en " + intentos + " intentos";
-    }
-
+        else if ( numeroej6 <= 0 || numeroej6 > 100) {document.getElementById("adivinado").innerHTML = "del 1 al 100 por favor";}
+        numeroej6 = parseInt(numeroej6);}
+    else {document.getElementById("adivinado").innerHTML = "Has adivinado el numero! pero en " + intentos + " intentos";}
 }
-
-
 ej6();
