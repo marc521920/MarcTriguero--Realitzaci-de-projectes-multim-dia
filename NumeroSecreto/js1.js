@@ -1,6 +1,5 @@
 
 
-let McDonalds = confirm ("parapapapa");
 let nuemero = 0;
 let numeroej2= 0;
 let numeroej3 = 0;
