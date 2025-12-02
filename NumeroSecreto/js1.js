@@ -106,14 +106,14 @@ function ej6() {
         if (numeroej6 < numerorandom && numeroej6 > 0) {
                 document.getElementById("adivinado").innerHTML = "El numero es mayor";
         }
-        else if (numeroej6 > numerorandom && numeroej6 < 100) {
+        else if (numeroej6 > numerorandom && numeroej6 <= 100) {
             
                 document.getElementById("adivinado").innerHTML = "El numero es menor ";
         }
         else if (isNaN(numeroej6)) {
             document.getElementById("adivinado").innerHTML = "Introduce un numero valido";
         }
-        else if ( numeroej6 < 0 || numeroej6 > 100) {
+        else if ( numeroej6 <= 0 || numeroej6 > 100) {
             document.getElementById("adivinado").innerHTML = "del 1 al 100 por favor";
         }
         numeroej6 = parseInt(numeroej6);
