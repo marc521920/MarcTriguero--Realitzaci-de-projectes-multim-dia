@@ -1,0 +1,278 @@
+* 
+{
+   
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body 
+{
+    background-color: rgb(184, 190, 170);
+    font-family: 'Poppins', sans-serif;
+    color: #000000;
+}
+
+main 
+{
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+}
+
+header 
+{
+    display: flex;
+    position: sticky;
+    top: 0;
+    background-color: rgb(133, 137, 121);
+    border-radius: 0 0 25px 25px;
+    height: 70px;
+    opacity: 0.95;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+header > nav 
+{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 20px;
+}
+
+header > nav > a 
+{
+    text-decoration: none;
+    color: #000000;
+    font-weight: 600;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+header > nav > a:hover 
+{
+    color: #ffffff;
+}
+
+section 
+{
+    background-color: #ffffff;
+    padding: 30px;
+    margin-top: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+h1 
+{
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+h2 
+{
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    border-bottom: 3px solid rgb(80, 84, 68);
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+h3 
+{
+    font-size: 1.4rem;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+section p, section ul 
+{
+    line-height: 1.6;
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+section#Introduction 
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 30px;
+    min-height: 350px;
+    margin-top: 20px;
+}
+
+article#intro1 
+{
+    width: 60%;
+    text-align: left;
+}
+
+article#intro2 
+{
+    width: 40%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+section#Introduction p:first-of-type 
+{
+    font-size: 1.5rem;
+    color: rgb(80, 84, 68);
+    margin-bottom: 5px;
+}
+section#Introduction p:nth-of-type(2) 
+{
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.contact-button 
+{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: rgb(80, 84, 68);
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.contact-button:hover 
+{
+    background-color: rgb(55, 58, 47);
+}
+
+article#intro2 figure 
+{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0;
+    box-shadow: 0 0 0 10px rgba(80, 84, 68, 0.3);
+}
+
+article#intro2 figure > img 
+{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+
+ul#skillslist 
+{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+    margin-top: 30px;
+}
+
+ul#skillslist > li {
+    background-color: rgb(80, 84, 68); 
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 15px 10px;
+    text-align: center;
+    font-weight: 600;
+    
+}
+
+
+section#portfolio ul {
+    list-style: disc;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-left: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+section#portfolio > ul > li
+{
+    display: flex;
+       background-color: rgb(80, 84, 68); 
+    width: 300px;
+    height: 300px;
+    border-radius: 8px;
+    margin: 20px 0;
+
+    align-items: center;
+
+}
+
+model-viewer {
+    background-color: rgb(80, 84, 68); 
+    width: 300px;
+    height: 300px;
+    border-radius: 8px;
+    margin: 20px 0;
+    display: block;
+}
+section#portfolio > ul > li > img {
+    background-color: rgb(80, 84, 68); 
+    width: 300px;
+    height:fit-content;
+    border-radius: 8px;
+    margin: 20px 0;
+    display: block;
+}
+footer {
+    background-color: rgb(133, 137, 121); 
+    color: #000000; 
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 30px;
+    border-radius: 25px 25px 0 0;
+}
+
+footer section#contact-footer {
+    background: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+}
+
+footer h2 {
+    color: #000000;
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 10px;
+    display: block;
+}
+
+footer a {
+    color: #000000;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: rgb(80, 84, 68);
+}
+
+.social-links {
+    font-size: 1.1rem;
+    margin-top: 10px;
+    margin-bottom: 15px; 
+}
+
+.thanks {
+    font-size: 1.2rem;
+    margin-top: 15px;
+    font-weight: 600;
+}
