@@ -20,13 +20,18 @@
         }
         function comprobar() {
                 let miTexto = document.getElementById("miTexto");
-                if (miTexto.textContent === "MARIO") {
-                        alert("¡Has acertado la palabra secreta!");
-                } else {
-                        alert("Palabra incorrecta. Inténtalo de nuevo.");
-                }
+                let teclaComprobante = document.createElement("div");
+                let comprobarLetra = document.getElementById("comprobarLetra");
+      
+                
+  
+
                 let color = 0;
                 miTexto.forEach(element => {
+                        teclaComprobante.innerHTML = "<p>" + element.textContent + "</p>";
+                        teclaComprobante.className = "tecla"; // <<-- Esta clase es clave para el CSS
+                        comprobarLetra.appendChild(teclaComprobante);
+  
                         palabra.forEach(element2 => {
                                 if (element.textContent === element2.textContent && miTexto.indexOf(element) === palabra.indexOf(element2)) {
                                         element.style.backgroundColor = "green";
