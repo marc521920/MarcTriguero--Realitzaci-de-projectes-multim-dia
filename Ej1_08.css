@@ -12,6 +12,17 @@
     align-items: center;
     width: 750px;
 }
+#resultadoComprobacion {
+    background-color: #333; /* Color de fondo oscuro para la base del teclado */
+    padding: 10px;
+    border-radius: 20px;
+    display: flex; /* Para que las teclas se alineen una al lado de la otra */
+    flex-wrap: wrap; /* Permite que las teclas salten a la siguiente fila */
+    gap: 10px; /* Espacio entre teclas */
+    margin-top: 20px;
+    align-items: center;
+    width: 300px;
+}
 
 #teclado h2 {
     width: 100%; /* El título ocupa todo el ancho */
@@ -85,4 +96,33 @@
     box-shadow: 
         /* Aplana la sombra para simular el click */
         0 1px 0 #808080; 
+}
+#casillaRespuesta {
+ /* Dimensiones de la tecla */
+    width: 50px;
+    height: 50px;
+    
+    /* Apariencia */
+    background-color: #e0e0e0;
+    border: 1px solid #c0c0c0;
+    border-radius: 5px;
+    color: #333;
+    
+    /* Contenido de la Tecla (el número) */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none; /* Evita que el texto sea seleccionado al hacer clic */
+    
+    /* Efecto 3D usando Box Shadow */
+    box-shadow: 
+        inset 0 1px 0 rgba(255, 255, 255, 0.8), /* Highlight superior */
+        0 3px 0 #a0a0a0, /* Sombra inferior para profundidad */
+        0 4px 0 #808080; /* Sombra más profunda */
+
+    transition: all 0.05s ease-out;
 }

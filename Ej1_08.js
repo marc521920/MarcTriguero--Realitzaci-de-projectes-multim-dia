@@ -18,37 +18,53 @@
                         miTexto.textContent = miTexto.textContent.substring(0, miTexto.textContent.length - 1);
         }
         }
+        let numeroActual = 0;
         function comprobar() {
                 let miTexto = document.getElementById("miTexto");
-                let teclaComprobante = document.createElement("div");
-                let comprobarLetra = document.getElementById("comprobarLetra");
-      
+                TextoComprobar = miTexto.textContent.split("");
                 
-  
-
+                
+                let resultadoComprobacion = document.getElementById("resultadoComprobacion");
+                
+                console.log("Comprobando la palabra: " + TextoComprobar);
+                
                 let color = 0;
-                miTexto.forEach(element => {
-                        teclaComprobante.innerHTML = "<p>" + element.textContent + "</p>";
-                        teclaComprobante.className = "tecla"; // <<-- Esta clase es clave para el CSS
-                        comprobarLetra.appendChild(teclaComprobante);
-  
-                        palabra.forEach(element2 => {
-                                if (element.textContent === element2.textContent && miTexto.indexOf(element) === palabra.indexOf(element2)) {
-                                        element.style.backgroundColor = "green";
+                if (TextoComprobar.length < 5) {
+                        alert("La palabra debe tener 5 letras.");
+                        
+                }
+                else {
+                        TextoComprobar.forEach(element => {
+                let cuadradoActual = resultadoComprobacion.children[numeroActual];        
+                        palabra.split("").forEach(element2 => {
+                                if (element === element2 && TextoComprobar.indexOf(element) === palabra.split("").indexOf(element2)) {
+                                        cuadradoActual.style.backgroundColor = "green";
                                         color++;
-                                } else if(element.textContent === element2.textContent && color === 0){
-                                        element.style.backgroundColor = "yellow";
+                                        console.log("es verde");
+                                } else if(element === element2 && color === 0){
+                                        cuadradoActual.style.backgroundColor = "yellow";
                                         color++;
+                                        console.log("es amarillo");
                                 }
                                 
                         });
-                        if (color > 0) {
-                                element.style.backgroundColor = "red";
+                        if (color == 0) {
+                                cuadradoActual.style.backgroundColor = "red";
                         }
+                        
+                        cuadradoActual.textContent = element.toString();
+                        console.log("element: " + element.toString());
                         color = 0;
+                        numeroActual++;
+                        
+                        console.log("numeroActual: " + numeroActual);
+                        
 
                         
                 });
+                console.log("ComprobacionEjectutada");
+                }
+                
         }
         let palabra = "";
         function palabraSecreta() {
@@ -126,32 +142,45 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         function cambiarFondoTeclado(i, tecla) {
                 if (i % 2 === 0) {
-                        tecla.style.backgroundColor = "#555"; // Color para teclas pares
+                        tecla.style.backgroundColor = "#555";
                 } else {
-                        tecla.style.backgroundColor = "#777"; // Color para teclas impares
+                        tecla.style.backgroundColor = "#777";
                 }
         }
 
         function tecladoFunction() {
                 let teclado = document.getElementById("teclado");
                 let borrar = document.getElementById("borrarLetra");
-                let comprobarLetra = document.getElementById("comprobarLetra");
-                // Convertimos el número a entero y validamos
+                let resultadoComprobacion = document.getElementById("resultadoComprobacion");
+               
 
                 for (let i = 65; i <= 90; i++) {
                         let tecla = document.createElement("div");
 
-                        // Tu código: Crea el div y le asigna el número
                         tecla.innerHTML = "<p>" + String.fromCharCode(i) + "</p>";
-                        tecla.className = "tecla"; // <<-- Esta clase es clave para el CSS
-
-                        // --- AÑADIMOS FUNCIONALIDAD DE CLICK ---
+                        tecla.className = "tecla"; 
                         tecla.setAttribute('onclick', "escribeTecla('" + i + "')");
                         borrar.setAttribute('onclick', "borrarLetra()");
-                        // ----------------------------------------
+
                         comprobarLetra.setAttribute('onclick', "comprobar()");
                         teclado.appendChild(tecla);
                 }
+
+                for (let k = 1; k <= 6; k++) {
+                        for (let j = 1; j <= 5; j++) {
+                        let tecla = document.createElement("div");
+
+                        tecla.innerHTML = "<p>" + String.fromCharCode(j) + "</p>";
+                        tecla.id = "casillaRespuesta"; 
+                        
+                        
+
+                        comprobarLetra.setAttribute('onclick', "comprobar()");
+                        resultadoComprobacion.appendChild(tecla);
+                        }
+                        
+                }
+
         }
       
 });
