@@ -20,52 +20,41 @@
         }
         let numeroActual = 0;
         function comprobar() {
-                let miTexto = document.getElementById("miTexto");
-                TextoComprobar = miTexto.textContent.split("");
-                
-                
-                let resultadoComprobacion = document.getElementById("resultadoComprobacion");
-                
-                console.log("Comprobando la palabra: " + TextoComprobar);
-                
-                let color = 0;
-                if (TextoComprobar.length < 5) {
-                        alert("La palabra debe tener 5 letras.");
-                        
-                }
-                else {
-                        TextoComprobar.forEach(element => {
-                let cuadradoActual = resultadoComprobacion.children[numeroActual];        
-                        palabra.split("").forEach(element2 => {
-                                if (element === element2 && TextoComprobar.indexOf(element) === palabra.split("").indexOf(element2)) {
-                                        cuadradoActual.style.backgroundColor = "green";
-                                        color++;
-                                        console.log("es verde");
-                                } else if(element === element2 && color === 0){
-                                        cuadradoActual.style.backgroundColor = "yellow";
-                                        color++;
-                                        console.log("es amarillo");
-                                }
-                                
-                        });
-                        if (color == 0) {
-                                cuadradoActual.style.backgroundColor = "red";
-                        }
-                        
-                        cuadradoActual.textContent = element.toString();
-                        console.log("element: " + element.toString());
-                        color = 0;
-                        numeroActual++;
-                        
-                        console.log("numeroActual: " + numeroActual);
-                        
+    let miTexto = document.getElementById("miTexto");
+    let textoAComprobar = miTexto.textContent.toUpperCase().split("");
+    let resultadoComprobacion = document.getElementById("resultadoComprobacion");
+    
+    // Obtenemos solo los DIVs (las casillas), saltándonos el H2
+    let casillas = resultadoComprobacion.querySelectorAll("div");
 
-                        
-                });
-                console.log("ComprobacionEjectutada");
-                }
-                
+    if (textoAComprobar.length < 5) {
+        alert("La palabra debe tener 5 letras.");
+        return;
+    }
+
+    textoAComprobar.forEach((letra, index) => {
+        // numeroActual debe ser el índice global (fila actual * 5 + columna)
+        let cuadroActual = casillas[numeroActual]; 
+
+        if (cuadroActual) {
+            cuadroActual.textContent = letra;
+            
+            // Lógica de colores (simplificada para que funcione)
+            if (letra === palabra[index]) {
+                cuadroActual.style.backgroundColor = "green";
+            } else if (palabra.includes(letra)) {
+                cuadroActual.style.backgroundColor = "yellow";
+            } else {
+                cuadroActual.style.backgroundColor = "red";
+            }
+            numeroActual++; // Avanzamos al siguiente cuadro
         }
+    });
+
+    // Limpiamos el texto escrito para la siguiente palabra
+    miTexto.textContent = ""; 
+    console.log("Comprobación ejecutada. Siguiente índice: " + numeroActual);
+}
         let palabra = "";
         function palabraSecreta() {
                 fetch('https://random-word-api.herokuapp.com/word?lang=es&length=5')
